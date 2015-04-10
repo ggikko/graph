@@ -30,4 +30,4 @@ img{vertical-align:top}
 section.model .bridge{margin:20px 5px;height:300px;border:1px solid #eee}
 footer{margin:0 auto}
 footer .btn_calc{display:block}
-footer .btn_calc .btn{width:80%;margin:0 auto}
+footer .btn_calc .btn{display:block;width:80%;margin:0 auto}

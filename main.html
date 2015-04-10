@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <link rel="stylesheet" href="css/gStyle.css">
 </head>
 <body>
@@ -49,7 +50,7 @@
     </section>
     <section class="model">
         <div class="bridge">
-
+            <canvas id="gCanvas"></canvas>
         </div>
     </section>
     <footer>
@@ -58,7 +59,52 @@
         </a>
     </footer>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 <script src="js/namespace.js"></script>
+<script>
+    $('#gCanvas').width('100%');
+    $('#gCanvas').height('100%');
+</script>
+<script>
+    var ctx = document.getElementById("gCanvas").getContext("2d");
+    var options = {
+        scaleGridLineColor : "rgba(0,0,0,.05)",
+        scaleShowGridLines : false,
+        bezierCurve : true,
+        tooltipXOffset: 1,
+        tooltipCaretSize: 1,
+        pointDotRadius : 1
+    }
+
+    var data = {
+        labels: [],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: []
+            }
+        ]
+    };
+
+    function setData(data){
+        for(var i=0;i<100;i++){
+            data.labels.push(i);
+            data.datasets[0].data[i] = Math.sin(i*10);
+        }
+    }
+
+    setData(data);
+
+
+    window.onload = function(){
+        var myLineChart = new Chart(ctx).Line(data, options);
+    }
+</script>
 </body>
 </html>
