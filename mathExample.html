@@ -31,7 +31,10 @@
     var options = {
         scaleGridLineColor : "rgba(0,0,0,.05)",
         scaleShowGridLines : false,
-        bezierCurve : false
+        bezierCurve : true,
+        tooltipXOffset: 1,
+        tooltipCaretSize: 1,
+        pointDotRadius : 1
     }
 
     var data = {
@@ -53,7 +56,7 @@
     function setData(data){
         for(var i=0;i<100;i++){
         data.labels.push(i);
-        data.datasets[0].data[i] = i+i;
+        data.datasets[0].data[i] = Math.sin(i*10);
         }
     }
 
