@@ -5,67 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0">
     <title>intro</title>
+    <!-- jQuery, Bootstrap Library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- custom style Sheet -->
     <link rel="stylesheet" href="css/gStyle.css">
 </head>
 <body>
-<div id="wrap">
-    <header></header>
-    <section>
-        <canvas id="gCanvas"></canvas>
-    </section>
-    <footer></footer>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-<script src="js/namespace.js"></script>
-<script>
-    $('#gCanvas').width($(document).width());
-    $('#gCanvas').height($(document).height()*0.4);
-</script>
-<script>
-    var ctx = document.getElementById("gCanvas").getContext("2d");
-    var options = {
-        scaleGridLineColor : "rgba(0,0,0,.05)",
-        scaleShowGridLines : false,
-        bezierCurve : true,
-        tooltipXOffset: 1,
-        tooltipCaretSize: 1,
-        pointDotRadius : 1
-    }
-
-    var data = {
-        labels: [],
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: []
-            }
-        ]
-    };
-
-    function setData(data){
-        for(var i=0;i<100;i++){
-        data.labels.push(i);
-        data.datasets[0].data[i] = Math.sin(i*10);
-        }
-    }
-
-    setData(data);
-
-
-    window.onload = function(){
-        var myLineChart = new Chart(ctx).Line(data, options);
-    }
-</script>
+    <div id="wrap">
+        <header>
+            <h1>
+                Line Chart Sample Example
+            </h1>
+        </header>
+        <section>
+            <canvas id="gCanvas">
+                your browser does not support HTML5 canvas.
+            </canvas>
+        </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="js/namespace.js"></script>
+    <script src="js/ui/gChart.js"></script>
 </body>
 </html>

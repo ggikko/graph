@@ -1,8 +1,8 @@
 
-_g_.ui.carousel = function(){this.Initialize.apply(this,arguments)};
+_g_.ui.carousel = function(){this.$init.apply(this,arguments)};
 
 _g_.ui.carousel.prototype = {
-	Initialize:	function(){
+    $init:	function(){
 		$('.item').height(window.innerHeight);
 		$('.carousel').carousel({
 			interval: 2000
